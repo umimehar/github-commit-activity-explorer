@@ -1,5 +1,5 @@
 {
-  "name": "GitHub Commit Activity Explorer",
+  "name": "github-commit-activity-explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
