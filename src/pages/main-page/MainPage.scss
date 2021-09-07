@@ -17,15 +17,6 @@
       display: flex;
     }
   }
-  .emptyResultWrapper{
-    background-color: #242432;
-    color: #BCBCF2;
-    border-radius: 8px;
-    font-size: 18px;
-    .textWrapper{
-      max-width: 338px;
-    }
-  }
 
   @media screen and (max-width: 600px) {
     flex-direction: column;

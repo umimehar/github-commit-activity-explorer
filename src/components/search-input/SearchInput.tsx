@@ -1,9 +1,12 @@
-import React, { ChangeEvent, MouseEventHandler, ReactElement, useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, ReactElement, useEffect, useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import './SearchInput.scss';
 import debounce from 'lodash/debounce';
 import { appConfig } from '../../config';
 import useOuterClick from '../../utils/useOuterClick';
+import { useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
+import { addInitialDataToList, searchGithubStatsHook } from '../../store/get-stats';
 
 type searchResult = {
   full_name: string;
@@ -11,11 +14,13 @@ type searchResult = {
 };
 
 export default function SearchInput(): ReactElement {
+  const dispatch: Dispatch = useDispatch();
   const { githubToken } = appConfig;
   const [searchResults, setSearchResults] = useState<searchResult[]>([]);
   const [query, setQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hideAutoComplete, setHideAutoComplete] = useState<boolean>(false);
+  const inputRef = useRef<any>(null);
 
   const innerRef = useOuterClick((ev: any) => {
     /*event handler code on outer click*/
@@ -54,7 +59,22 @@ export default function SearchInput(): ReactElement {
   }, [query]);
 
   const handleSelection = (data: searchResult) => {
-    console.log(data);
+    dispatch(
+      searchGithubStatsHook({
+        fullName: data.full_name,
+        initialData: data,
+        isLoading: true,
+        error: '',
+        stats: [],
+        color: generateRandomColor(),
+        hovered: false,
+      })
+    );
+    if (inputRef && inputRef.current) {
+      inputRef.current.value = '';
+    }
+
+    setQuery('');
   };
 
   return (
@@ -64,6 +84,7 @@ export default function SearchInput(): ReactElement {
           onClick={() => {
             setHideAutoComplete(false);
           }}
+          ref={inputRef}
           onChange={onInputChange}
           type='text'
           placeholder={'Search a Github Repository...'}
@@ -110,4 +131,13 @@ export default function SearchInput(): ReactElement {
       </div>
     </>
   );
+}
+
+function generateRandomColor(): string {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }

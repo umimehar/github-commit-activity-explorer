@@ -21,6 +21,9 @@
 .align-items-center {
   align-items: center;
 }
+.align-items-flex-end {
+  align-items: flex-end;
+}
 .align-content-center {
   align-content: center;
 }
@@ -198,4 +201,10 @@ $sides: (top, bottom, left, right);
 // loader clases
 .loader{
   height: 210px;
+}
+.text-white{
+  color: white;
+}
+.cursor-pointer{
+  cursor: pointer;
 }

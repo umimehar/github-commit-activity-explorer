@@ -1,0 +1,45 @@
+.repoListWrapper{
+  .emptyResultWrapper{
+    background-color: #242432;
+    color: #BCBCF2;
+    border-radius: 8px;
+    font-size: 18px;
+    .textWrapper{
+      max-width: 338px;
+    }
+  }
+
+  .coloredBg {
+    &.dimmed {
+      opacity: 0.3;
+    }
+    &.hovered {
+      opacity: 1;
+    }
+    display: flex;
+    border-radius: 3px;
+    background-color: transparent;
+    border: 0;
+    color: #BFBDD9;
+    width: 100%;
+    padding: 0;
+    .repoWrapper{
+
+      margin-left: 6px;
+      border-radius: 1px;
+      background-color: #272736;
+      padding: 15px 10px;
+      .repoButton{
+
+
+      }
+      .noButtonStyles{
+        border: 0;
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+  }
+
+}
+
