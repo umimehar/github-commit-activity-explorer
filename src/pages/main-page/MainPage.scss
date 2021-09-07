@@ -1,0 +1,42 @@
+
+// main page Scss
+.mainPageWrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  section.graphWrapper{
+    width: 100%;
+  }
+  aside.sideBar{
+    width: 40%;
+    background-color: #37374A;
+    min-height: 500px;
+    padding-top: 30px;
+    .searchInputWrapper{
+      margin-top: 30px;
+      display: flex;
+    }
+  }
+  .emptyResultWrapper{
+    background-color: #242432;
+    color: #BCBCF2;
+    border-radius: 8px;
+    font-size: 18px;
+    .textWrapper{
+      max-width: 338px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    width: 100%;
+    section.graphWrapper{
+      order:2;
+    }
+    aside.sideBar{
+      order: 1;
+      width: 100%;
+      background-color: #37374A;
+    }
+  }
+}

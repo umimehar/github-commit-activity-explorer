@@ -1,5 +1,6 @@
 export type ConfigType = {
   env: EnvEnums;
+  githubToken: string;
 };
 
 export enum EnvEnums {
@@ -10,12 +11,15 @@ export enum EnvEnums {
 
 const devConfig: ConfigType = {
   env: EnvEnums.development,
+  githubToken: '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',
 };
 const testConfig: ConfigType = {
   env: EnvEnums.test,
+  githubToken: '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',
 };
 const liveConfig: ConfigType = {
   env: EnvEnums.production,
+  githubToken: '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',
 };
 
 const allEnvCong = {
