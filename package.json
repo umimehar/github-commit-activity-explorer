@@ -1,5 +1,6 @@
 {
   "name": "github-commit-activity-explorer",
+  "homepage": "https://github.io/github-commit-activity-explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/eslint": "^7.28.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/gh-pages": "^3.2.0",
     "@types/jest": "^27.0.1",
     "@types/lodash": "^4.14.172",
     "@types/node": "^16.7.13",
@@ -40,6 +42,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.2",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
@@ -48,6 +51,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": ".scripts/build.sh && NODE_DEBUG=gh-pages gh-pages -d build -t",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",

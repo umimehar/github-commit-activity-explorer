@@ -67,7 +67,7 @@ export default function SearchInput(): ReactElement {
         error: '',
         stats: [],
         color: generateRandomColor(),
-        hovered: false,
+        hoverState: false,
       })
     );
     if (inputRef && inputRef.current) {

@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+> This app is deployed live at [https://umimehar.github.io/github-commit-activity-explorer/](https://umimehar.github.io/github-commit-activity-explorer) using GitHub pages.
+
 ### `yarn start`
 
 Runs the app in the development mode.\
