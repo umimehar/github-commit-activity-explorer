@@ -1,6 +1,5 @@
 export type ConfigType = {
   env: EnvEnums;
-  apiHost: string;
 };
 
 export enum EnvEnums {
@@ -11,15 +10,12 @@ export enum EnvEnums {
 
 const devConfig: ConfigType = {
   env: EnvEnums.development,
-  apiHost: 'http://localhost:3000',
 };
 const testConfig: ConfigType = {
   env: EnvEnums.test,
-  apiHost: 'http://localhost:3000', // can change this for tests
 };
 const liveConfig: ConfigType = {
   env: EnvEnums.production,
-  apiHost: 'http://localhost:3000', // can change this for live
 };
 
 const allEnvCong = {
@@ -28,4 +24,5 @@ const allEnvCong = {
   production: liveConfig,
 };
 
+// for app internal use envs
 export const appConfig: ConfigType = allEnvCong[process.env.NODE_ENV];
